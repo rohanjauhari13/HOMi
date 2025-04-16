@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -59,7 +58,9 @@ const SignUp = () => {
     toast("Account created", {
       description: "An OTP has been sent to your email.",
     });
-    navigate("/");
+    
+    // Navigate to the verification page, passing the email
+    navigate("/verify-email", { state: { email: neuEmail } });
   };
 
   return (
