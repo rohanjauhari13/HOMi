@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -13,6 +13,38 @@ const VerifyEmail = () => {
   
   const [otp, setOtp] = useState("");
   const [isVerifying, setIsVerifying] = useState(false);
+  const [countdown, setCountdown] = useState(60);
+  const [resendDisabled, setResendDisabled] = useState(true);
+  
+  // Generate a mock OTP for demonstration
+  const mockOtp = "1234";
+  
+  // Countdown timer for resend button
+  useEffect(() => {
+    // Show the mock OTP for testing purposes
+    console.log("Your verification code is:", mockOtp);
+    toast("OTP Generated", {
+      description: `For testing: Your verification code is ${mockOtp}`,
+    });
+    
+    let timer: number | undefined;
+    if (resendDisabled && countdown > 0) {
+      timer = window.setInterval(() => {
+        setCountdown((prev) => {
+          if (prev <= 1) {
+            setResendDisabled(false);
+            clearInterval(timer);
+            return 0;
+          }
+          return prev - 1;
+        });
+      }, 1000);
+    }
+    
+    return () => {
+      if (timer) clearInterval(timer);
+    };
+  }, [resendDisabled]);
   
   const handleVerify = () => {
     if (otp.length !== 4) {
@@ -24,20 +56,35 @@ const VerifyEmail = () => {
     
     setIsVerifying(true);
     
-    // This would be replaced with actual verification logic
+    // For demonstration purposes, we'll accept the mock OTP or "1234"
     setTimeout(() => {
-      console.log("Verifying OTP:", otp);
-      toast("Email Verified", {
-        description: "Your email has been verified successfully",
-      });
-      navigate("/home");
+      if (otp === mockOtp || otp === "1234") {
+        console.log("OTP verified successfully:", otp);
+        toast("Email Verified", {
+          description: "Your email has been verified successfully",
+        });
+        navigate("/home");
+      } else {
+        toast("Invalid Code", {
+          description: "The code you entered is incorrect. Please try again.",
+        });
+        setOtp("");
+      }
       setIsVerifying(false);
-    }, 1500);
+    }, 1000);
   };
   
   const handleResend = () => {
+    if (resendDisabled) return;
+    
+    setOtp("");
+    setCountdown(60);
+    setResendDisabled(true);
+    
+    // Generate a new mock OTP
+    console.log("New verification code is:", mockOtp);
     toast("Code Resent", {
-      description: "A new verification code has been sent to your email",
+      description: `For testing: Your new verification code is ${mockOtp}`,
     });
   };
   
@@ -76,10 +123,11 @@ const VerifyEmail = () => {
               Didn't receive the code?{" "}
             </span>
             <button 
-              className="font-medium text-black hover:underline"
+              className={`font-medium hover:underline ${resendDisabled ? 'text-gray-400' : 'text-black'}`}
               onClick={handleResend}
+              disabled={resendDisabled}
             >
-              Resend
+              {resendDisabled ? `Resend (${countdown}s)` : "Resend"}
             </button>
           </div>
           
