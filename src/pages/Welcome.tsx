@@ -35,7 +35,7 @@ const Welcome = () => {
         {/* Get Started Button */}
         <Button 
           className="w-full py-5 md:py-6 rounded-full md:rounded-md bg-black text-white hover:bg-gray-800 text-base md:text-lg"
-          onClick={() => navigate("/home")}
+          onClick={() => navigate("/signin")}
         >
           Get Started
         </Button>
