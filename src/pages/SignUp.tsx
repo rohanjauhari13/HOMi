@@ -10,7 +10,6 @@ import { AlertCircle } from "lucide-react";
 const SignUp = () => {
   const navigate = useNavigate();
   const [name, setName] = useState("");
-  const [personalEmail, setPersonalEmail] = useState("");
   const [neuEmail, setNeuEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -56,7 +55,7 @@ const SignUp = () => {
     }
     
     // This would be replaced with actual registration logic
-    console.log("Signing up with:", name, personalEmail, neuEmail, password);
+    console.log("Signing up with:", name, neuEmail, password);
     toast("Account created", {
       description: "An OTP has been sent to your email.",
     });
@@ -74,7 +73,7 @@ const SignUp = () => {
             <Input 
               id="name"
               type="text" 
-              placeholder="Email" 
+              placeholder="Name" 
               className="h-12 text-base rounded-lg"
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -83,7 +82,7 @@ const SignUp = () => {
           </div>
           
           <div className="space-y-2">
-            <Label htmlFor="personalEmail" className="text-base font-normal">Northeastern email</Label>
+            <Label htmlFor="neuEmail" className="text-base font-normal">Northeastern email</Label>
             <Input 
               id="neuEmail"
               type="email" 
