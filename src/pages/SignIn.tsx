@@ -40,52 +40,55 @@ const SignIn = () => {
   };
 
   return (
-    <div className="min-h-screen w-full bg-white px-6 py-12 flex flex-col">
-      <h1 className="text-4xl font-bold mb-10">Sign In</h1>
-      
-      <form onSubmit={handleSignIn} className="space-y-6">
-        <div className="space-y-2">
-          <Label htmlFor="email" className="text-lg">Email</Label>
-          <Input 
-            id="email"
-            type="email" 
-            placeholder="Email" 
-            className="h-14 text-lg rounded-lg"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-          {emailError && <p className="text-red-500 text-sm">{emailError}</p>}
-        </div>
+    <div className="min-h-screen w-full bg-white px-6 py-12 flex flex-col items-center">
+      <div className="max-w-md w-full">
+        <h1 className="text-4xl font-medium mb-8">Sign In</h1>
         
-        <div className="space-y-2">
-          <Label htmlFor="password" className="text-lg">Password</Label>
-          <Input 
-            id="password"
-            type="password" 
-            placeholder="Password" 
-            className="h-14 text-lg rounded-lg"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
+        <form onSubmit={handleSignIn} className="space-y-6">
+          <div className="space-y-2">
+            <Label htmlFor="email" className="text-base font-normal">Email</Label>
+            <Input 
+              id="email"
+              type="email" 
+              placeholder="XXX@northeastern.edu" 
+              className="h-12 text-base rounded-lg"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            {emailError && <p className="text-red-500 text-sm">{emailError}</p>}
+          </div>
+          
+          <div className="space-y-2">
+            <Label htmlFor="password" className="text-base font-normal">Password</Label>
+            <Input 
+              id="password"
+              type="password" 
+              placeholder="Password" 
+              className="h-12 text-base rounded-lg"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          
+          <Button 
+            type="submit" 
+            className="w-full h-12 mt-6 bg-black text-white hover:bg-gray-800 rounded-md text-base"
+          >
+            Login
+          </Button>
+        </form>
         
-        <Button 
-          type="submit" 
-          className="w-full h-14 mt-6 bg-black text-white hover:bg-gray-800 rounded-md text-lg"
-        >
-          Login
-        </Button>
-      </form>
-      
-      <div className="mt-10 text-center">
-        <button 
-          className="text-lg"
-          onClick={() => navigate("/signup")}
-        >
-          Don't have an account? <span className="underline font-medium">Sign Up</span>
-        </button>
+        <div className="mt-6 text-center bg-gray-50 py-3 rounded-full">
+          <span className="text-base text-gray-700">Don't have an account? </span>
+          <button 
+            className="text-base text-black font-normal"
+            onClick={() => navigate("/signup")}
+          >
+            Sign Up
+          </button>
+        </div>
       </div>
     </div>
   );
