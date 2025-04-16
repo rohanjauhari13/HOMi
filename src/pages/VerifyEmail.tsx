@@ -63,7 +63,8 @@ const VerifyEmail = () => {
         toast("Email Verified", {
           description: "Your email has been verified successfully",
         });
-        navigate("/home");
+        // Navigate to user profile page instead of home
+        navigate("/user-profile", { state: { email } });
       } else {
         toast("Invalid Code", {
           description: "The code you entered is incorrect. Please try again.",
