@@ -1,5 +1,5 @@
 
-import { ArrowLeft, FindHome, FindRoommates } from "lucide-react";
+import { ArrowLeft, Home, Users } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const LookingFor = () => {
@@ -23,11 +23,9 @@ const LookingFor = () => {
             onClick={() => navigate("/home")}
             className="w-full p-6 flex items-center gap-6 rounded-xl border border-gray-200 hover:border-gray-300 transition-colors"
           >
-            <img 
-              src="/lovable-uploads/3a55651f-6e09-4a11-963c-593a46605d08.png" 
-              alt="Find Roommates" 
-              className="w-20 h-20 object-contain"
-            />
+            <div className="w-20 h-20 flex items-center justify-center">
+              <Users size={48} />
+            </div>
             <span className="text-2xl font-medium">Find Roommates</span>
           </button>
 
@@ -36,7 +34,7 @@ const LookingFor = () => {
             className="w-full p-6 flex items-center gap-6 rounded-xl border border-gray-200 hover:border-gray-300 transition-colors"
           >
             <div className="w-20 h-20 flex items-center justify-center">
-              <FindHome size={48} />
+              <Home size={48} />
             </div>
             <span className="text-2xl font-medium">Find Home</span>
           </button>
