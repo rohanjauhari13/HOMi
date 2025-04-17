@@ -1,12 +1,9 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Index from "./pages/Index";
-import RoomDetail from "./pages/RoomDetail";
-import DeviceControl from "./pages/DeviceControl";
-import NotFound from "./pages/NotFound";
 import Welcome from "./pages/Welcome";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
@@ -15,6 +12,7 @@ import UserProfile from "./pages/UserProfile";
 import LookingFor from "./pages/LookingFor";
 import FindHome from "./pages/FindHome";
 import FindPeople from "./pages/FindPeople";
+import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
@@ -32,9 +30,6 @@ const App = () => (
           <Route path="/user-profile" element={<UserProfile />} />
           <Route path="/looking-for" element={<LookingFor />} />
           <Route path="/find-home" element={<FindHome />} />
-          <Route path="/home" element={<Index />} />
-          <Route path="/room/:roomId" element={<RoomDetail />} />
-          <Route path="/device/control" element={<DeviceControl />} />
           <Route path="/find-people" element={<FindPeople />} />
           <Route path="/" element={<Navigate to="/welcome" replace />} />
           <Route path="*" element={<NotFound />} />
@@ -45,3 +40,4 @@ const App = () => (
 );
 
 export default App;
+

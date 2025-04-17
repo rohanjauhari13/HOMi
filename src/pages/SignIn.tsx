@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -31,12 +30,11 @@ const SignIn = () => {
       return;
     }
     
-    // This would be replaced with actual authentication logic
     console.log("Signing in with:", email, password);
     toast("Sign in successful", {
       description: "Welcome back!",
     });
-    navigate("/home");
+    navigate("/find-home");
   };
 
   return (
