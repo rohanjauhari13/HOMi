@@ -1,4 +1,3 @@
-
 import { ArrowLeft, Home, Users } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
@@ -20,7 +19,7 @@ const LookingFor = () => {
 
         <div className="space-y-4">
           <button 
-            onClick={() => navigate("/home")}
+            onClick={() => navigate("/find-people")}
             className="w-full p-6 flex items-center gap-6 rounded-xl border border-gray-200 hover:border-gray-300 transition-colors"
           >
             <div className="w-20 h-20 flex items-center justify-center">
@@ -45,4 +44,3 @@ const LookingFor = () => {
 };
 
 export default LookingFor;
-

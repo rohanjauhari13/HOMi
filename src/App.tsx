@@ -14,6 +14,7 @@ import VerifyEmail from "./pages/VerifyEmail";
 import UserProfile from "./pages/UserProfile";
 import LookingFor from "./pages/LookingFor";
 import FindHome from "./pages/FindHome";
+import FindPeople from "./pages/FindPeople";
 
 const queryClient = new QueryClient();
 
@@ -34,8 +35,8 @@ const App = () => (
           <Route path="/home" element={<Index />} />
           <Route path="/room/:roomId" element={<RoomDetail />} />
           <Route path="/device/control" element={<DeviceControl />} />
+          <Route path="/find-people" element={<FindPeople />} />
           <Route path="/" element={<Navigate to="/welcome" replace />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
