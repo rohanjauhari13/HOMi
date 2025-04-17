@@ -1,4 +1,5 @@
 
+import React from 'react';
 import { ArrowLeft, Bath, Bed, Users, Filter } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -58,7 +59,11 @@ const FindHome = () => {
             <Button variant="default" className="bg-black text-white rounded-full">
               Find House
             </Button>
-            <Button variant="outline" className="rounded-full" onClick={() => navigate("/home")}>
+            <Button 
+              variant="outline" 
+              className="rounded-full" 
+              onClick={() => navigate("/find-people")}
+            >
               Find People
             </Button>
           </div>
@@ -149,4 +154,3 @@ const FindHome = () => {
 };
 
 export default FindHome;
-
