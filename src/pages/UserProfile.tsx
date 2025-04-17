@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -70,8 +69,8 @@ const UserProfile = () => {
       description: "Your profile information has been saved successfully.",
     });
     
-    // Navigate to home page
-    navigate("/home");
+    // Navigate to looking for page instead of home
+    navigate("/looking-for");
   };
   
   const handleSkip = () => {
