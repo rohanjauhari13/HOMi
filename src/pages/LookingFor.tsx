@@ -30,7 +30,7 @@ const LookingFor = () => {
           </button>
 
           <button 
-            onClick={() => navigate("/home")}
+            onClick={() => navigate("/find-home")}
             className="w-full p-6 flex items-center gap-6 rounded-xl border border-gray-200 hover:border-gray-300 transition-colors"
           >
             <div className="w-20 h-20 flex items-center justify-center">
@@ -45,3 +45,4 @@ const LookingFor = () => {
 };
 
 export default LookingFor;
+
